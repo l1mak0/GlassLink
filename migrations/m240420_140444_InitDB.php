@@ -14,11 +14,11 @@ class m240420_140444_InitDB extends Migration
             'name' => $this->string()->notNull(),
             'surname' => $this->string()->notNull(),
             'phone' => $this->string()->notNull()->unique(),
-            'birthday' => $this->date(),
-            'sale_card_id' => $this->integer()
+            'birthday' => $this->date()
         ]);
         $this->createTable('sale_card', [
             'id' => $this->primaryKey(),
+            'user_id' => $this->integer(),
             'number' => $this->string()->notNull(),
             'balance' => $this->integer()->notNull()->defaultValue(0),
             'date' => $this->date()
@@ -26,15 +26,15 @@ class m240420_140444_InitDB extends Migration
         $this->addForeignKey(
             'sale_to_user_fk',
             'sale_card',
-            'id',
+            'user_id',
             'users',
-            'sale_card_id',
+            'id',
             'CASCADE',
             'CASCADE'
         );
 
         $this->createTable('menu', [
-           'id' => $this->string()->notNull(),
+           'id' => $this->primaryKey(),
            'title' => $this->string()->notNull(),
             'description' => $this->text(),
             'compound' => $this->text(),
@@ -43,7 +43,7 @@ class m240420_140444_InitDB extends Migration
             'category_id' => $this->integer()->notNull()
         ]);
         $this->createTable('categories', [
-            'id' => $this->string()->notNull(),
+            'id' => $this->primaryKey(),
             'title' => $this->string()->notNull(),
             'description' => $this->text(),
         ]);
