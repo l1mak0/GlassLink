@@ -43,7 +43,7 @@ class m240420_140444_InitDB extends Migration
             'category_id' => $this->integer()->notNull()
         ]);
         $this->createTable('categories', [
-            'id' => $this->primaryKey(),
+            'id' => $this->primaryKey() ,
             'title' => $this->string()->notNull(),
             'description' => $this->text(),
         ]);
