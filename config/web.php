@@ -18,7 +18,6 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
             'identityClass' => 'app\entity\Users',
             'enableAutoLogin' => true,
         ],
@@ -45,6 +44,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/' => 'menu/index'
             ],
         ],
     ],

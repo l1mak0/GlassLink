@@ -4,11 +4,8 @@
  * @copyright Copyright (c) 2008 Yii Software LLC
  * @license https://www.yiiframework.com/license/
  */
-
 namespace app\assets;
-
 use yii\web\AssetBundle;
-
 /**
  * Main application asset bundle.
  *
@@ -21,6 +18,7 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
+        'css/main.css',
     ];
     public $js = [
     ];

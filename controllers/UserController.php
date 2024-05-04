@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\entity\Users;
+use app\models\AuthForm;
 use app\models\RegistrationModel;
 use app\repository\SaleCardRepository;
 use app\repository\UserRepository;
