@@ -2,7 +2,9 @@
 
 namespace app\models;
 
-class CategoryForm extends \yii\base\Model
+use yii\base\Model;
+
+class CategoryForm extends Model
 {
     public $title;
     public $description;
@@ -10,8 +12,8 @@ class CategoryForm extends \yii\base\Model
     public function rules()
     {
         return [
-            [['title','description'], 'required'],
-            ['description', 'string', 'length' => [10,200]]
+            [['title', 'description'], 'required'],
+            ['description', 'string', 'length' => [10, 200]],
         ];
     }
 
@@ -22,5 +24,4 @@ class CategoryForm extends \yii\base\Model
             'description' => 'Описание'
         ];
     }
-
 }
