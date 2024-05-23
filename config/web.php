@@ -4,7 +4,9 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
+    'language' => 'ru_RU',
     'bootstrap' => ['log'],
+    'defaultRoute' => 'menu',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -20,9 +22,10 @@ $config = [
         'user' => [
             'identityClass' => 'app\entity\Users',
             'enableAutoLogin' => true,
+            'loginUrl' => '/user/authorization'
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'menu/error',
         ],
         'mailer' => [
             'class' => \yii\symfonymailer\Mailer::class,
