@@ -2,13 +2,10 @@
 
 namespace app\repository;
 
-namespace app\repository;
-
 use app\entity\Menu;
 
 class MenuRepository
 {
-
     public static function createNewMenu($title, $description, $compound, $price, $volume, $category_id)
     {
         $menu = new Menu();
@@ -22,8 +19,11 @@ class MenuRepository
         return $menu->id;
     }
 
-    public static function getMenu()
-    {
-        return Menu::find()->all();
+    public static function getMenu($where = [], $orderBy = null){
+        return Menu::find()->where($where)->orderBy($orderBy)->all();
+    }
+
+    public static function getOneFromMenu($where = []){
+        return Menu::find()->where($where)->one();
     }
 }

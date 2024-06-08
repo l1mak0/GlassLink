@@ -1,12 +1,12 @@
 <?php
+
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'language' => 'ru_RU',
     'bootstrap' => ['log'],
-    'defaultRoute' => 'menu',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -14,18 +14,17 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'SNfuzgcfPdlc2LPHDbceW0qParv0YPk5',
+            'cookieValidationKey' => 'ifAUbEo5mlnFOFmux3BQZw3uKz2d3LA-',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\entity\Users',
+            'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
-            'loginUrl' => '/user/authorization'
         ],
         'errorHandler' => [
-            'errorAction' => 'menu/error',
+            'errorAction' => 'site/error',
         ],
         'mailer' => [
             'class' => \yii\symfonymailer\Mailer::class,
@@ -47,12 +46,12 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '/' => 'menu/index'
             ],
         ],
     ],
     'params' => $params,
 ];
+
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
@@ -61,6 +60,7 @@ if (YII_ENV_DEV) {
         // uncomment the following to add your IP if you are not connecting from localhost.
         //'allowedIPs' => ['127.0.0.1', '::1'],
     ];
+
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
@@ -68,4 +68,5 @@ if (YII_ENV_DEV) {
         //'allowedIPs' => ['127.0.0.1', '::1'],
     ];
 }
+
 return $config;

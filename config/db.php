@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'pgsql:host=localhost;dbname=glasslink',
+    'dsn' => 'mysql:host=localhost;dbname=pitland',
     'username' => 'postgres',
     'password' => '',
     'charset' => 'utf8',
